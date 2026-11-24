@@ -28,8 +28,13 @@ table { border-collapse: collapse; }
 .side {
   flex: 0 0 296px; padding: 28px 20px; background: var(--card);
   border-right: 1px solid var(--line); display: flex; flex-direction: column; gap: 22px;
+  /* ตรึง sidebar ไว้เต็มความสูงจอ และเลื่อนเฉพาะ sidebar เมื่อเนื้อหายาว */
+  position: sticky; top: 0; align-self: flex-start;
+  height: 100vh; height: 100dvh; overflow-y: auto; overscroll-behavior: contain;
 }
-@media (max-width: 760px) { .side { flex-basis: 100%; border-right: none; border-bottom: 1px solid var(--line); } }
+@media (max-width: 760px) {
+  .side { flex-basis: 100%; border-right: none; border-bottom: 1px solid var(--line); position: static; height: auto; overflow: visible; }
+}
 .main { flex: 999 1 560px; min-width: 0; padding: 28px 32px 56px; display: flex; flex-direction: column; gap: 22px; }
 @media (max-width: 760px) { .main { padding: 20px 16px 48px; } }
 
